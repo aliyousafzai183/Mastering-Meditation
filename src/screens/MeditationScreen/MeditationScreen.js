@@ -6,7 +6,7 @@ import images from '../../index';
 import { RouteName } from '../../routes';
 import { SH } from '../../utils';
 import { useTheme } from '@react-navigation/native';
-const ExerciseVideo = (props) => {
+const MeditationScreen = (props) => {
   const { colorsset } = useTheme();
   const HomeStyles = useMemo(() => HomeStyle(colorsset), [colorsset]);
   const { navigation } = props;
@@ -81,4 +81,4 @@ const ExerciseVideo = (props) => {
     </Container>
   );
 };
-export default ExerciseVideo;
+export default MeditationScreen;
