@@ -122,7 +122,16 @@ export default WorkoutDetailStyle = (colorsset) => StyleSheet.create({
     alignSelf:'center',
     borderRadius:SW(20),
     paddingHorizontal:SW(10),
-    paddingVertical:SH(10)
+    paddingVertical:SH(10),
+    shadowColor: "#000",
+shadowOffset: {
+	width: 0,
+	height: 3,
+},
+shadowOpacity: 0.27,
+shadowRadius: 4.65,
+
+elevation: 6,
   },
   boxTextLight:{
     color:colorsset.off_gray,

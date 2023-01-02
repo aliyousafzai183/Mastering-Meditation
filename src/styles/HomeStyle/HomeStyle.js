@@ -34,8 +34,9 @@ export default HomeStyle = (colorsset) => StyleSheet.create({
     overflow: "hidden",
     borderRadius:10,
     paddingHorizontal:SW(10),
-    paddingVertical:SW(10)
-
+    paddingVertical:SW(10),
+    elevation: 10,
+    shadowColor: colorsset.theme_backgound_second,
   },
   setbgimage:{
     height: SH(40),
@@ -226,7 +227,15 @@ export default HomeStyle = (colorsset) => StyleSheet.create({
     flex: 1,
     alignContent: "center",
     justifyContent: "center",
-
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.37,
+    shadowRadius: 7.49,
+    
+    elevation: 12,
   },
   setbgimageYoga:{
     height: SH(100),
@@ -257,7 +266,15 @@ export default HomeStyle = (colorsset) => StyleSheet.create({
     justifyContent:'space-between',
     alignItems:'center',
     position:'relative',
-
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    
+    elevation: 3,
   },
   RecentAllViewBoxCategory:{
     paddingHorizontal:SW(10),
@@ -316,6 +333,15 @@ export default HomeStyle = (colorsset) => StyleSheet.create({
     borderRadius:10,
     paddingHorizontal:SW(15),
     paddingVertical:SW(15),
+    shadowColor: "#000",
+shadowOffset: {
+	width: 0,
+	height: 6,
+},
+shadowOpacity: 0.37,
+shadowRadius: 7.49,
+
+elevation: 12,
   },
   ImageTitleDaySizeMeditation:{
     color:colorsset.theme_backgound,
