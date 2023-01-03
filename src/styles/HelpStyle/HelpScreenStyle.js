@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { SF, SH, SW, Fonts,  ColorTheme } from '../../utils';
 
 export default HelpStyle = (colorsset) => StyleSheet.create({
@@ -35,17 +34,17 @@ export default HelpStyle = (colorsset) => StyleSheet.create({
     paddingTop: 5,
   },
   settextinputwidth: {
-    backgroundColor: 'white',
+    backgroundColor: colorsset.white,
     borderRadius: 7,
     paddingBottom: 100,
     paddingLeft: 10,
     paddingRight: 10,
     color: ColorTheme.TextGreyColor,
-    fontFamily: Fonts.Metropolis_Medium,
+    fontFamily: Fonts.RobotoCondensed_Regular,
   },
   settextinputtext: {
-    fontFamily: Fonts.Metropolis_Medium,
-    color: 'white',
+    fontFamily: Fonts.RobotoCondensed_Regular,
+    color: colorsset.theme_backgound,
     fontSize: 16,
     lineHeight: 20,
     marginTop: 20,

@@ -7,6 +7,7 @@ import {
   AboutSelfScreen, AgeScreen, 
   LoginScreen, SignUpScreen, OtpVerifyScreen,
    WorkoutDetailScreen,
+   ForgotPasswordScreen,
    
 } from '../screens';
 import { colorsset } from '../utils';
@@ -45,6 +46,7 @@ useEffect(()=>{
         <Stack.Screen name={RouteName.ABOUT_SELF_SCREEN} component={AboutSelfScreen} />
         <Stack.Screen name={RouteName.AGE_SCREEN} component={AgeScreen} />
         <Stack.Screen name={RouteName.LOGIN_SCREEN} component={LoginScreen} />
+        <Stack.Screen name={RouteName.FORGOT_PASSWORD_SCREEN} component={ForgotPasswordScreen} />       
         <Stack.Screen name={RouteName.SIGNUP_SCREEN} component={SignUpScreen} />
         <Stack.Screen name={RouteName.OTP_VERYFY_SCREEN} component={OtpVerifyScreen} />
         <Stack.Screen name={RouteName.WORKOUT_DETAIL_SCREEN} component={WorkoutDetailScreen} />       

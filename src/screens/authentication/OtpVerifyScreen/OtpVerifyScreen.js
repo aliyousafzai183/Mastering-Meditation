@@ -1,5 +1,5 @@
 import React, { useState ,useMemo} from 'react';
-import { View, Text } from 'react-native';
+import { View, Text,TouchableOpacity } from 'react-native';
 import { Authentication } from '../../../styles/Authentication';
 import { Button, Container, Spacing, OtpInput, SweetAlertModal } from '../../../components';
 import { RouteName } from '../../../routes';
@@ -11,10 +11,11 @@ const OtpVerifyScreen = (props) => {
   const Authentications = useMemo(() => Authentication(colorsset), [colorsset]);
   const { navigation } = props;
   const [code, setCode] = useState('');
+  const [checkAlertType, setCheckAlertType] = useState('1');
   const [successModalVisible, setSuccessModalVisible] = useState(false);
   const onPressHandle = () => {
     setSuccessModalVisible(false)
-    navigation.navigate(RouteName.HOME_SCREEN)
+    checkAlertType == "1" && navigation.navigate(RouteName.HOME_SCREEN)
   }
   return (
     <Container>
@@ -37,8 +38,9 @@ const OtpVerifyScreen = (props) => {
             onCodeChanged={(code) => setCode(code)}
           />
           <Spacing space={SH(30)} />
-
+          <TouchableOpacity onPress={()=> {setCheckAlertType('2'); setSuccessModalVisible(true)} }>
           <Text style={Authentications.resendText}>Resend OTP?</Text>
+          </TouchableOpacity>
         </View>
 
         <View>
@@ -47,18 +49,19 @@ const OtpVerifyScreen = (props) => {
               <Button title="" LeftArraow={true} buttonStyle={Authentications.PrevButton} onPress={() => navigation.navigate(RouteName.LOGIN_SCREEN)} />
             </View>
             <View style={Authentications.buttonView}>
-              <Button title="Verify" buttonStyle={Authentications.nextButton} onPress={() => setSuccessModalVisible(true)} />
+              <Button title="Verify" buttonStyle={Authentications.nextButton} onPress={() =>  {setCheckAlertType('1'); setSuccessModalVisible(true)}} />
             </View>
           </View>
           <Spacing space={SH(25)} />
         </View>
 
         <SweetAlertModal
-          message={"Login Success"}
+          message={checkAlertType == "2" ? "OTP sent successfully" : "Login Success"}
           modalVisible={successModalVisible}
           setModalVisible={setSuccessModalVisible}
           onPress={() => onPressHandle()}
-          loginSuccess={true}
+          loginSuccess={checkAlertType == "1" && true}
+          success={checkAlertType == "2" && true}
           buttonText="OK"
         />
       </View>

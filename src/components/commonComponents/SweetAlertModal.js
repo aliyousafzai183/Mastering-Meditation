@@ -1,8 +1,8 @@
-import React ,{useMemo} from "react";
+import React, { useMemo } from "react";
 import { Modal, Text, View } from "react-native";
 import SweetAlertModalStyle from '../../styles/SweetAlertModalStyle';
-import  Button  from './Button';
-import  LottieIcon  from './LottieIcon';
+import Button from './Button';
+import LottieIcon from './LottieIcon';
 import propTypes from 'prop-types';
 import images from "../../index";
 import { useTheme } from '@react-navigation/native';
@@ -11,7 +11,7 @@ import LinearGradient from 'react-native-linear-gradient';
 function SweetaelertModal(props) {
     const { colorsset } = useTheme();
     const Style = useMemo(() => SweetAlertModalStyle(colorsset), [colorsset]);
-    const { message, modalVisible, setModalVisible, onPress, onPressCancel, buttonText, cancelButtonText, iconVisible,loginSuccess=false } = props;
+    const { message, modalVisible, setModalVisible, onPress, onPressCancel, buttonText, cancelButtonText, iconVisible, loginSuccess = false, success = false } = props;
 
     return <Modal
         animationType="slide"
@@ -23,12 +23,12 @@ function SweetaelertModal(props) {
     >
         <View style={Style.setbgcolorgrsay}>
             <View style={Style.centeredView}>
-            <LinearGradient
-    start={{ x: 0, y: 0 }}
-    end={{x: 1, y: 1 }}
-    colors={[colorsset.theme_linear_gradient_1, colorsset.theme_linear_gradient_2, colorsset.theme_linear_gradient_3, colorsset.theme_linear_gradient_4, colorsset.theme_linear_gradient_2, colorsset.theme_linear_gradient_4,colorsset.theme_linear_gradient_2]}
-    style={Style.modalView}>
-               
+                <LinearGradient
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 1 }}
+                    colors={[colorsset.theme_linear_gradient_1, colorsset.theme_linear_gradient_2, colorsset.theme_linear_gradient_3, colorsset.theme_linear_gradient_4, colorsset.theme_linear_gradient_2, colorsset.theme_linear_gradient_4, colorsset.theme_linear_gradient_2]}
+                    style={Style.modalView}>
+
                     {iconVisible &&
                         <View style={Style.setroundcenter}>
                             <View style={Style.checkiconright}>
@@ -36,23 +36,30 @@ function SweetaelertModal(props) {
                         </View>
                     }
                     {loginSuccess &&
-                    <LottieIcon 
-                    style={Style.loginSuccessIcon}
-                    source={images.loginSuccess}
-                    loop={false}
-                    />
+                        <LottieIcon
+                            style={Style.loginSuccessIcon}
+                            source={images.loginSuccess}
+                            loop={false}
+                        />
+                    }
+                    {success &&
+                        <LottieIcon
+                            style={Style.loginSuccessIcon}
+                            source={images.success}
+                            loop={false}
+                        />
                     }
                     <View style={Style.registertextset}>
                         <Text style={Style.settext}>{message}</Text>
                     </View>
                     <View style={Style.buttonminview}>
-                        {onPress && 
-                        <View style={Style.setokbutton}>
-                            <Button 
-                            title={buttonText}
-                            onPress={() =>  onPress() }
-                            />
-                        </View>
+                        {onPress &&
+                            <View style={Style.setokbutton}>
+                                <Button
+                                    title={buttonText}
+                                    onPress={() => onPress()}
+                                />
+                            </View>
                         }
                         {cancelButtonText ?
                             <View style={Style.setokbutton}>

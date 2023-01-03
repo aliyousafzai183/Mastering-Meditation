@@ -1,4 +1,4 @@
-import React, { useState,useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { View, Text, ImageBackground, TouchableOpacity, ScrollView } from 'react-native';
 import { Authentication } from '../../../styles/Authentication';
 import { Button, Container, Spacing, Input } from '../../../components';
@@ -54,9 +54,9 @@ const LoginScreen = (props) => {
               value={inputPassword}
               secureTextEntry={true}
             />
-
-            <Text style={Authentications.forgotText}>Forgot Password?</Text>
-
+            <TouchableOpacity onPress={() => navigation.navigate(RouteName.FORGOT_PASSWORD_SCREEN)}>
+              <Text style={Authentications.forgotText}>Forgot Password?</Text>
+            </TouchableOpacity>
           </View>
 
           <Spacing space={SH(30)} />

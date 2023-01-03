@@ -1,7 +1,7 @@
 import React, { useState,useMemo } from 'react';
 import { View, Text, Pressable, TouchableOpacity, Modal, Switch, ScrollView } from 'react-native';
 import { HomeStyle,Settings } from '../../styles';
-import { Button, Container, Spacing, } from '../../components';
+import { SweetAlertModal, Container, Spacing, } from '../../components';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconF from 'react-native-vector-icons/AntDesign';
 import { SH } from '../../utils';
@@ -12,8 +12,10 @@ const AppSettingsScreen = (props) => {
     const Settingss = useMemo(() => Settings(colorsset), [colorsset]);
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-    const [modalVisible, setModalVisible] = useState(false);
-
+    const [successModalVisible, setSuccessModalVisible] = useState(false);
+    const onPressHandle = () => {
+      setSuccessModalVisible(false)
+    }
     return (
         <Container>
             <ScrollView>
@@ -78,59 +80,9 @@ const AppSettingsScreen = (props) => {
                                     <Text style={Settingss.deletedownloads}>Delete All Downloads</Text>
                                     <Text style={Settingss.downloadfastertext}>This will remove all downloaded Lessons Videos From your Phone</Text>
                                 </View>
-                                <View style={Settingss.centeredView}>
-                                    <Modal
-                                        animationType="slide"
-                                        transparent={true}
-                                        visible={modalVisible}
-                                        onRequestClose={() => {
-                                            setModalVisible(!modalVisible);
-                                        }}
-                                    >
-                                        <View style={Settingss.centeredView}>
-                                            <View style={Settingss.modalView}>
-                                                <View style={Settingss.setshadowstylemodaltwo}>
-
-                                                    <View style={Settingss.setiallpaddingmodal}>
-                                                        <TouchableOpacity style={Settingss.icomvlose} onPress={() => setModalVisible(!modalVisible)}>
-                                                            <IconF
-                                                                size={25}
-                                                                name="close"
-
-                                                            />
-                                                        </TouchableOpacity>
-                                                        <View style={Settingss.centericon}>
-                                                            <View style={{
-                                                                borderWidth: 2,
-                                                                borderRadius: 222,
-
-                                                                height: 80,
-                                                                width: 80,
-                                                                marginBottom: 15,
-                                                                flexDirection: 'row',
-                                                                justifyContent: 'center',
-                                                                alignItems: 'center',
-                                                            }}>
-                                                                <IconF
-                                                                    size={40}
-                                                                    name="check"
-
-                                                                />
-                                                            </View>
-                                                        </View>
-                                                        <Text style={Settingss.modalText}>Deleted Successfully</Text>
-                                                        <View style={Settingss.setbuttonwidth}>
-                                                            <Button onPress={() => setModalVisible(!modalVisible)} title="Okay" />
-                                                        </View>
-                                                    </View>
-
-                                                </View>
-                                            </View>
-                                        </View>
-                                    </Modal>
-                                </View>
+                              
                                 <Pressable
-                                    onPress={() => setModalVisible(true)}
+                                    onPress={() => setSuccessModalVisible(true)}
                                 >
                                     <Icon
                                         size={30}
@@ -145,7 +97,14 @@ const AppSettingsScreen = (props) => {
                 <Spacing space={SH(80)} />
 
             </ScrollView>
-
+            <SweetAlertModal
+          message={"Deleted Successfully"}
+          modalVisible={successModalVisible}
+          setModalVisible={setSuccessModalVisible}
+          onPress={() => onPressHandle()}
+          success={true}
+          buttonText="OK"
+        />
         </Container>
     );
 };

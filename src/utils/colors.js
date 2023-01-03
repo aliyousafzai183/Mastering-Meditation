@@ -16,6 +16,7 @@ export const colorsset = {
   transpharentwhite:"#f4f4f421",
   theme_backgoundLight:"#FFD0D4",
   theme_backgound_secondLight:'#E4E2FF',
+  red:'red',
 
 };
 export default colorsset;

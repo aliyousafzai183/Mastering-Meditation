@@ -37,5 +37,6 @@ const images = {
     category4: require('./category4.png'),
     category5: require('./category5.png'),
     category6: require('./category6.png'),
+    success: require('./lottieAnimation/success.json'),
 }
 export default images;
