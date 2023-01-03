@@ -10,10 +10,10 @@ const MeditationScreen = (props) => {
   const { colorsset } = useTheme();
   const HomeStyles = useMemo(() => HomeStyle(colorsset), [colorsset]);
   const { navigation } = props;
-  const BeginersData = [{ id: "1", time: "20 mins", title: "Breather", titletext: "t is a long established fact that a reader will be distracted by the readable content of", image: images.meditation1 },
-   { id: "2", time: "21 mins", title: "Toned", titletext: "t is a long established fact that a reader will be distracted by the readable content of", image: images.meditation2 }, 
-   { id: "3", time: "10 mins", title: "Toned", titletext: "t is a long established fact that a reader will be distracted by the readable content of", image: images.meditation3 }, 
-   { id: "4", time: "15 mins", title: "Soft Curve Workout", titletext: "t is a long established fact that a reader will be distracted by the readable content of", image: images.meditation1 },]
+  const BeginersData = [{ id: "1", time: "20 mins", title: "Breather", titletext: "It is a long established fact that a reader will be distracted by the readable content of", image: images.meditation1 },
+   { id: "2", time: "21 mins", title: "Toned", titletext: "It is a long established fact that a reader will be distracted by the readable content of", image: images.meditation2 }, 
+   { id: "3", time: "10 mins", title: "Toned", titletext: "It is a long established fact that a reader will be distracted by the readable content of", image: images.meditation3 }, 
+   { id: "4", time: "15 mins", title: "Soft Curve Workout", titletext: "It is a long established fact that a reader will be distracted by the readable content of", image: images.meditation1 },]
 
   const [tabIndex, setTabIndex] = useState(1);
 

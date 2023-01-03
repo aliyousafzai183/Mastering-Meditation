@@ -4,7 +4,7 @@ import SweetAlertModalStyle from '../../styles/SweetAlertModalStyle';
 import  Button  from './Button';
 import  LottieIcon  from './LottieIcon';
 import propTypes from 'prop-types';
-import images from "../../images";
+import images from "../../index";
 import { useTheme } from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 

@@ -5,7 +5,7 @@ import { ColorPickerStyle } from '../../styles';
 import { color_picker_set_action } from "../../redux/action/CommonAction";
 import { useDispatch, useSelector } from "react-redux";
 import Button from './Button';
-import images from '../../images';
+import images from '../../index';
 import { colorsset } from "../../utils";
 import { RouteName } from "../../routes";
 import { useNavigation,useTheme } from '@react-navigation/native';

@@ -21,13 +21,13 @@ const GetstartedSliderscreen = (props) => {
     },
     {
       key: '2',
-      text: "Meet Your Coach",
-      boldText: 'Start your journey',
+      text: "Get stronger and",
+      boldText: 'fitter with us',
     },
     {
       key: '3',
-      text: "Meet Your Coach",
-      boldText: 'Start your journey',
+      text: "Make this season",
+      boldText: 'better with fitness',
     },
 
   ];
