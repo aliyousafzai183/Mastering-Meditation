@@ -1,4 +1,4 @@
-package com.meditate.newarchitecture;
+package com.masteringmeditation.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.meditate.BuildConfig;
-import com.meditate.newarchitecture.components.MainComponentsRegistry;
-import com.meditate.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.masteringmeditation.BuildConfig;
+import com.masteringmeditation.newarchitecture.components.MainComponentsRegistry;
+import com.masteringmeditation.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

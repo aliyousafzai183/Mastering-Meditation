@@ -1,4 +1,4 @@
-package com.meditate.newarchitecture.modules;
+package com.masteringmeditation.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
