@@ -2,7 +2,7 @@ import React, { useState,useMemo } from 'react';
 import { View, Text, ImageBackground, TouchableOpacity ,ScrollView} from 'react-native';
 import { Authentication } from '../../../styles/Authentication';
 import { Button, Container, Spacing, Input } from '../../../components';
-import images from '../../../index';
+import images from '../../../images';
 import { RouteName } from '../../../routes';
 import {  SH } from '../../../utils';
 import { useTheme } from '@react-navigation/native';

@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { View, Text, Image, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 import { HomeStyle } from '../../styles';
 import {  Container, Spacing, BottomTabMenu, LottieIcon } from '../../components';
-import images from '../../index';
+import images from '../../images';
 import { RouteName } from '../../routes';
 import { SH } from '../../utils';
 import { useTheme } from '@react-navigation/native';
@@ -48,11 +48,11 @@ const MeditationScreen = (props) => {
       <BottomTabMenu {...props} selected={2} />
       <Spacing space={SH(20)} />
       <View style={HomeStyles.meditationImageView}>
-      <LottieIcon source={images.meditationbg} style={HomeStyles.meditationImageicon} />
+        <LottieIcon source={images.meditationbg} style={HomeStyles.meditationImageicon} />
       </View>
       <View style={HomeStyles.VideoTab}>
         <TouchableOpacity onPress={() => setTabIndex(1)}>
-          <Text style={[HomeStyles.VideoTabText, tabIndex == 1 && HomeStyles.activeBorder]}>Beginers</Text>
+          <Text style={[HomeStyles.VideoTabText, tabIndex == 1 && HomeStyles.activeBorder]}>Beginners</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => setTabIndex(2)}>
           <Text style={[HomeStyles.VideoTabText, tabIndex == 2 && HomeStyles.activeBorder]}>Skills</Text>
@@ -62,22 +62,17 @@ const MeditationScreen = (props) => {
         </TouchableOpacity>
       </View>
       <Spacing space={SH(20)} />
-
-      <ScrollView>
-        <View style={HomeStyles.textcenterview}>
-          <View>
-            <FlatList
-              data={BeginersData}
-              renderItem={({ item, index }) => videoListView(item, index)}
-              keyExtractor={(item, index) => index.toString()}
-              horizontal={false}
-            />
-          </View>
-        </View>
-
-      </ScrollView>
+  
+      <View style={HomeStyles.textcenterview}>
+        <FlatList
+          data={tabIndex == 1 ? BeginersData : tabIndex == 2 ? BeginersData : BeginersData}
+          renderItem={({ item, index }) => videoListView(item, index)}
+          keyExtractor={(item, index) => index.toString()}
+          horizontal={false}
+        />
+      </View>
+  
       <Spacing space={SH(80)} />
-
     </Container>
   );
 };

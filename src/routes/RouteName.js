@@ -10,6 +10,7 @@ const RouteName = {
     SIGNUP_SCREEN: "SignUpScreen",
     OTP_VERYFY_SCREEN: "OtpVerifyScreen",
     HOME_SCREEN: "HomeScreen",
+    MAIN_HOME_SCREEN: "MainHomeScreen",
     WORKOUT_DETAIL_SCREEN: "WorkoutDetailScreen",
     READY_TO_GO_SCREEN: "ReadyToGoScreen",
     START_SCREEN: "StartScreen",   

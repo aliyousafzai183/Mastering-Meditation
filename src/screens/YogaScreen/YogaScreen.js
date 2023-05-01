@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { SafeAreaView, View, Text, Image, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 import { HomeStyle } from '../../styles';
 import { Button, Container, Spacing, OtpInput, SweetAlertModal, BottomTab, AppHeader, WeeklyGoal, BottomTabMenu } from '../../components';
-import images from '../../index';
+import images from '../../images';
 import { RouteName } from '../../routes';
 import { SH } from '../../utils';
 import { useTheme } from '@react-navigation/native';
@@ -70,20 +70,14 @@ const YogaScreen = (props) => {
       </View>
       <Spacing space={SH(20)} />
 
-      <ScrollView>
-        <View style={HomeStyles.textcenterview}>
-          <View>
-            <FlatList
-              data={tabIndex == 1 ? BeginersData : tabIndex == 2 ? SkillsData : MasterData}
-              renderItem={({ item, index }) => videoListView(item, index)}
-              keyExtractor={(item, index) => index.toString()}
-              horizontal={false}
-              numColumns={2}
-            />
-          </View>
-        </View>
+      <FlatList
+        data={tabIndex == 1 ? BeginersData : tabIndex == 2 ? SkillsData : MasterData}
+        renderItem={({ item, index }) => videoListView(item, index)}
+        keyExtractor={(item, index) => index.toString()}
+        horizontal={false}
+        numColumns={2}
+      />
 
-      </ScrollView>
       <Spacing space={SH(80)} />
 
     </Container>

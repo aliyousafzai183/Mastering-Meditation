@@ -2,7 +2,7 @@ import React, { useState,useMemo } from 'react';
 import { View, Text, TouchableOpacity, FlatList, ScrollView, Image } from 'react-native';
 import { HomeStyle } from '../../styles';
 import { Container, Spacing, BottomTabMenu } from '../../components';
-import images from '../../index';
+import images from '../../images';
 import { RouteName } from '../../routes';
 import { SH } from '../../utils';
 import { useTheme } from '@react-navigation/native';
@@ -33,51 +33,51 @@ const HomeScreen = (props) => {
 
   return (
     <Container>
-      <BottomTabMenu 
-      {...props} 
-      selected={0}
-      />
-      <ScrollView>
-        <View style={HomeStyles.textcenterview}>
-          <Spacing space={SH(20)} />
-          <View style={HomeStyles.userIconView}>
-            <View style={HomeStyles.userIconBox}>
-            <Image source={images.userIcon} style={HomeStyles.userIcon}  resizeMode='cover' />
+      <BottomTabMenu {...props} selected={0} />
+      <FlatList
+        data={[{ key: 'content' }]}
+        renderItem={() => (
+          <View style={HomeStyles.textcenterview}>
+            <Spacing space={SH(20)} />
+            <View style={HomeStyles.userIconView}>
+              <View style={HomeStyles.userIconBox}>
+                <Image
+                  source={images.userIcon}
+                  style={HomeStyles.userIcon}
+                  resizeMode="cover"
+                />
+              </View>
+  
+              <Text style={HomeStyles.userTitle}>Hey Pinal!</Text>
             </View>
-             
-          <Text style={HomeStyles.userTitle}>Hey Pinal!</Text>
+            <Spacing space={SH(30)} />
+            <View style={HomeStyles.textView}>
+              <Text style={HomeStyles.heading}>What's your mood today?</Text>
+            </View>
+  
+            <Spacing space={SH(40)} />
+            <View style={HomeStyles.HomeCommonView}>
+              <Text style={HomeStyles.HomeCommonTitle}>Latest Practices</Text>
+              <Text style={[HomeStyles.HomeCommonTitle, HomeStyles.viewAllColor]}>
+                View All
+              </Text>
+            </View>
+            <Spacing space={SH(20)} />
+  
+            <View style={HomeStyles.RecentAllView}>
+              <FlatList
+                data={workoutData}
+                renderItem={({ item, index }) => workOutView(item, index)}
+                keyExtractor={(item, index) => index.toString()}
+                horizontal={false}
+                numColumns={2}
+              />
+            </View>
+            <Spacing space={SH(80)} />
           </View>
-          <Spacing space={SH(30)} />
-          <View style={HomeStyles.textView}>
-            <Text style={HomeStyles.heading}>What's your mood today?</Text>
-          </View>
-
-          <Spacing space={SH(40)} />
-          <View style={HomeStyles.HomeCommonView}>
-            <Text style={HomeStyles.HomeCommonTitle}>Latest Practices</Text>
-            <Text style={[HomeStyles.HomeCommonTitle, HomeStyles.viewAllColor]}>View All</Text>
-          </View>
-          <Spacing space={SH(20)} />
-
-         
-
-          <View style={HomeStyles.RecentAllView}>
-            <FlatList
-              data={workoutData}
-              renderItem={({ item, index }) => workOutView(item, index)}
-              keyExtractor={(item, index) => index.toString()}
-              horizontal={false}
-              numColumns={2}
-            />
-            
-          </View>
-
-        
-        </View>
-
-      </ScrollView>
-      <Spacing space={SH(80)} />
-
+        )}
+        keyExtractor={(item) => item.key}
+      />
     </Container>
   );
 };

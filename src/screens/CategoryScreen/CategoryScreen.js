@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import {  View, Text, Image, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 import { HomeStyle } from '../../styles';
 import {  Container, Spacing,  BottomTabMenu } from '../../components';
-import images from '../../index';
+import images from '../../images';
 import { RouteName } from '../../routes';
 import { SH } from '../../utils';
 import { useTheme } from '@react-navigation/native';
@@ -51,7 +51,7 @@ const CategoryScreen = (props) => {
       <BottomTabMenu {...props} selected={3} />
       <Spacing space={SH(20)} />
 
-      <ScrollView>
+      <View>
         <View style={HomeStyles.textcenterview}>
         <View style={HomeStyles.textViewCategory}>
             <Text style={HomeStyles.heading}>Why do you want to meditate?</Text>
@@ -67,7 +67,7 @@ const CategoryScreen = (props) => {
           </View>
         </View>
 
-      </ScrollView>
+      </View>
       <Spacing space={SH(80)} />
 
     </Container>

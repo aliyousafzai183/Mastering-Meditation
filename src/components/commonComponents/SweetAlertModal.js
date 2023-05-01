@@ -5,12 +5,11 @@ import Button from './Button';
 import LottieIcon from './LottieIcon';
 import propTypes from 'prop-types';
 import images from "../../index";
-import { useTheme } from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
+import colors from '../../utils/colors';
 
 function SweetaelertModal(props) {
-    const { colorsset } = useTheme();
-    const Style = useMemo(() => SweetAlertModalStyle(colorsset), [colorsset]);
+    const Style = useMemo(() => SweetAlertModalStyle(colors), [colors]);
     const { message, modalVisible, setModalVisible, onPress, onPressCancel, buttonText, cancelButtonText, iconVisible, loginSuccess = false, success = false } = props;
 
     return <Modal
@@ -26,7 +25,7 @@ function SweetaelertModal(props) {
                 <LinearGradient
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 1 }}
-                    colors={[colorsset.theme_linear_gradient_1, colorsset.theme_linear_gradient_2, colorsset.theme_linear_gradient_3, colorsset.theme_linear_gradient_4, colorsset.theme_linear_gradient_2, colorsset.theme_linear_gradient_4, colorsset.theme_linear_gradient_2]}
+                    colors={[colors.theme_linear_gradient_1, colors.theme_linear_gradient_2, colors.theme_linear_gradient_3, colors.theme_linear_gradient_4, colors.theme_linear_gradient_2, colors.theme_linear_gradient_4, colors.theme_linear_gradient_2]}
                     style={Style.modalView}>
 
                     {iconVisible &&
@@ -61,43 +60,35 @@ function SweetaelertModal(props) {
                                 />
                             </View>
                         }
-                        {cancelButtonText ?
+                        {cancelButtonText &&
                             <View style={Style.setokbutton}>
-                                <Button title={cancelButtonText}
-                                    onPress={() => { onPressCancel() }}
+                                <Button
+                                    title={cancelButtonText}
+                                    onPress={() => {
+                                        setModalVisible(false);
+                                        onPressCancel && onPressCancel();
+                                    }}
                                 />
                             </View>
-                            : null
                         }
-
-
                     </View>
                 </LinearGradient>
             </View>
         </View>
-    </Modal>;
+    </Modal>
 }
 
-SweetaelertModal.defaultProps = {
-    message: '',
-    setModalVisible: () => { },
-    modalVisible: false,
-    onPress: () => { },
-    onPressCancel: () => { },
-    buttonText: 'Ok',
-    cancelButtonText: '',
-    iconVisible: false
-};
-
 SweetaelertModal.propTypes = {
-    message: propTypes.string,
-    setModalVisible: propTypes.func,
-    modalVisible: propTypes.boolean,
+    message: propTypes.string.isRequired,
+    modalVisible: propTypes.bool.isRequired,
+    setModalVisible: propTypes.func.isRequired,
     onPress: propTypes.func,
     onPressCancel: propTypes.func,
-    buttonText: propTypes.string,
+    buttonText: propTypes.string.isRequired,
     cancelButtonText: propTypes.string,
-    iconVisible: propTypes.boolean
-};
+    iconVisible: propTypes.bool,
+    loginSuccess: propTypes.bool,
+    success: propTypes.bool,
+}
 
 export default SweetaelertModal;

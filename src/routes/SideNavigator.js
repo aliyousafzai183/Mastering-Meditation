@@ -50,7 +50,7 @@ const SideNavigator = props => {
       }
     }} >
       <Drawer.Screen
-        name={RouteName.HOME_SCREEN} component={HomeScreen}
+        name={RouteName.MAIN_HOME_SCREEN} component={HomeScreen}
         options={{
           title: "Home",
           headerTitle: (props) => <AppHeader {...props} headerTitle="Home" />,
