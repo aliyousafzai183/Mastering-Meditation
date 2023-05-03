@@ -17,6 +17,5 @@ export const colorsset = {
   theme_backgoundLight:"#FFD0D4",
   theme_backgound_secondLight:'#E4E2FF',
   red:'red',
-
 };
 export default colorsset;

@@ -18,7 +18,7 @@ const SideNavigator = props => {
       backgroundColor: colorsset.theme_backgound_second,
     },
     headerShown: true,
-    headerRight: (props) => <ColorPicker {...props} />,
+    // headerRight: (props) => <ColorPicker {...props} />,
     drawerActiveTintColor: colorsset.theme_backgound,
     drawerInactiveTintColor: colorsset.white,
     drawerLabelStyle: { color: colorsset.theme_backgound, fontSize: SF(18), fontFamily: Fonts.RobotoCondensed_Regular },

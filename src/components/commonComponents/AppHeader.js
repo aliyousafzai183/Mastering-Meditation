@@ -2,10 +2,10 @@ import React, { useMemo } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import propTypes from 'prop-types';
 import {  SF, SH, SW, Fonts } from '../../utils';
-import { useTheme } from '@react-navigation/native';
+import { useTheme, useNavigation } from '@react-navigation/native';
 
 
-function AppHeader({navigation, headerStyle, leftImage, title, rightImage, onLeftPress, onRightPress, titleStyle, LeftComponent = null,headerTitle }) {
+function AppHeader({headerStyle, leftImage, title, rightImage, onLeftPress, onRightPress, titleStyle, LeftComponent = null,headerTitle }) {
     const { colorsset } = useTheme();
 
     const styles = useMemo(
@@ -56,6 +56,8 @@ function AppHeader({navigation, headerStyle, leftImage, title, rightImage, onLef
             }),
         [headerStyle, colorsset],
     );
+
+    const navigation = useNavigation();
 
     return (
         <View style={styles.container}>

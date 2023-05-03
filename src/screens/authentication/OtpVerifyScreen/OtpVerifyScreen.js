@@ -29,7 +29,7 @@ const OtpVerifyScreen = (props) => {
           <Text style={Authentications.verificationText}>We sent you an SMS code</Text>
           <Spacing space={SH(3)} />
 
-          <Text style={Authentications.verificationText}>On number +91 1234567890</Text>
+          <Text style={Authentications.verificationText}>On number +923473766183</Text>
           <Spacing space={SH(100)} />
           <OtpInput
             pinnum={4}

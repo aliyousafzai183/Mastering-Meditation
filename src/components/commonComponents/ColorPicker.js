@@ -1,4 +1,4 @@
-import React, { useState,useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import { View, Text, Image, Pressable, Modal, TouchableOpacity } from 'react-native';
 import ColorPicker from 'react-native-wheel-color-picker';
 import { ColorPickerStyle } from '../../styles';
@@ -8,13 +8,13 @@ import Button from './Button';
 import images from '../../index';
 import { colorsset } from "../../utils";
 import { RouteName } from "../../routes";
-import { useNavigation,useTheme } from '@react-navigation/native';
+import { useNavigation, useTheme } from '@react-navigation/native';
 
 const ColorPickerset = (props) => {
   const { colorsset } = useTheme();
   const ColorPickerStyles = useMemo(() => ColorPickerStyle(colorsset), [colorsset]);
   const [modalVisible, setModalVisible] = useState(false);
-  const [currentColor, setCurrentColor] = useState('');
+  const [currentColor, setCurrentColor] = useState();
   const dispatch = useDispatch();
   const onColorChange = (selectedColor) => {
     setCurrentColor(selectedColor);
@@ -55,10 +55,19 @@ const ColorPickerset = (props) => {
                 </View>
               </View>
               <View style={ColorPickerStyles.setbuttonwidth}>
-                <Button title="ok"
-                  buttonStyle={{ backgroundColor: colorsset.theme_backgound_second, borderColor: colorsset.theme_backgound_second }}
-                  onPress={() => {  setModalVisible(false); navigation.replace(RouteName.HOME_SCREEN) }}
+                <Button
+                  title="ok"
+                  buttonStyle={{
+                    backgroundColor: colorsset.theme_backgound_second,
+                    borderColor: colorsset.theme_backgound_second,
+                    color: 'black'
+                  }}
+                  onPress={() => {
+                    setModalVisible(false);
+                    navigation.replace(RouteName.HOME_SCREEN)
+                  }}
                 />
+
               </View>
             </View>
           </View>
