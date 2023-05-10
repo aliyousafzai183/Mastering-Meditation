@@ -48,7 +48,7 @@ const HomeScreen = (props) => {
                 />
               </View>
   
-              <Text style={HomeStyles.userTitle}>Hey Pinal!</Text>
+              {/* <Text style={HomeStyles.userTitle}>Hey Pinal!</Text> */}
             </View>
             <Spacing space={SH(30)} />
             <View style={HomeStyles.textView}>

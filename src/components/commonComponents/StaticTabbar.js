@@ -9,6 +9,7 @@ import {
   TextStyle,
   I18nManager,
 } from 'react-native';
+import colorsset, {colorset} from '../../utils/colors';
 
 import {TabsType} from './TabBar';
 let {width} = Dimensions.get('window');

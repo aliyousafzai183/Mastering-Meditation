@@ -61,7 +61,7 @@ const AboutSelfScreen = (props) => {
 
         <View>
           <View style={Authentications.buttonView}>
-            <Button title="Next" nextArraow={true} buttonStyle={Authentications.nextButton} onPress={() => navigation.navigate(RouteName.LOGIN_SCREEN)} />
+            <Button title="Next" nextArraow={true} buttonStyle={Authentications.nextButton} onPress={() => navigation.replace(RouteName.HOME_SCREEN)} />
           </View>
           <Spacing space={SH(25)} />
         </View>
